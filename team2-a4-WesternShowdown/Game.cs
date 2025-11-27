@@ -1,7 +1,11 @@
 ﻿
 using System;
+<<<<<<< HEAD
 using System.Diagnostics;
 using System.Numerics;
+=======
+using team2_a4_WesternShowdown;
+>>>>>>> Heather/Menu
 
 
 namespace MohawkGame2D
@@ -9,6 +13,7 @@ namespace MohawkGame2D
 
     public class Game
     {
+<<<<<<< HEAD
         int duelMatch = 1;
         float timeElapsed = 0;
         float drawDelay = Random.Float(3, 10);
@@ -22,10 +27,25 @@ namespace MohawkGame2D
             Window.SetSize(600, 400);
             Window.SetTitle("Western Showdown");
             Window.ClearBackground(Color.White);
+=======
+        // Place your variables here:
+
+        Menu titleMenu = new Menu();
+        /// <summary>
+        ///     Setup runs once before the game loop begins.
+        /// </summary>
+        public void Setup()
+        {
+            Window.SetTitle("Western ShowDown");
+            Window.SetSize(800, 600);
+
+            titleMenu.Setup();
+>>>>>>> Heather/Menu
         }
 
         public void Duel()
         {
+            titleMenu.Update();
 
             Text.Draw("Ready...", new Vector2(250, 180));
             if (timeElapsed - timeReset >= drawDelay)

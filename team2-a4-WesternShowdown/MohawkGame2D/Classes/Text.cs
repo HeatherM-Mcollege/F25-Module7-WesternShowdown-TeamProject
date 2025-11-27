@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Numerics;
-/*////////////////////////////////////////////////////////////////////////
+﻿/*////////////////////////////////////////////////////////////////////////
  * Copyright (c)
  * Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Numerics;
 
 namespace MohawkGame2D
 {
