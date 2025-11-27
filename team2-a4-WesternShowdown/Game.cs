@@ -1,8 +1,10 @@
+<<<<<<< HEAD
 ﻿
 using System;
 <<<<<<< HEAD
 using System.Diagnostics;
 using System.Numerics;
+using team2_a4_WesternShowdown;
 =======
 using team2_a4_WesternShowdown;
 >>>>>>> Heather/Menu
@@ -11,6 +13,14 @@ using team2_a4_WesternShowdown;
 namespace MohawkGame2D
 {
 
+=======
+﻿using System;
+using System.Numerics;
+using team2_a4_WesternShowdown;
+
+namespace MohawkGame2D
+{
+>>>>>>> - Add character classes
     public class Game
     {
 <<<<<<< HEAD
@@ -27,9 +37,13 @@ namespace MohawkGame2D
             Window.SetSize(600, 400);
             Window.SetTitle("Western Showdown");
             Window.ClearBackground(Color.White);
-=======
-        // Place your variables here:
 
+            Character1 character1 = new Character1(new Vector2(450, 275));
+            Character2 character2 = new Character2(new Vector2(0, 275));
+=======
+
+
+<<<<<<< HEAD
         Menu titleMenu = new Menu();
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -40,6 +54,9 @@ namespace MohawkGame2D
             Window.SetSize(800, 600);
 
             titleMenu.Setup();
+
+            character1.Setup(); 
+            character2.Setup();
 >>>>>>> Heather/Menu
         }
 
@@ -295,7 +312,6 @@ namespace MohawkGame2D
                 }
                 else { }
             }
-        }
 
 
 
