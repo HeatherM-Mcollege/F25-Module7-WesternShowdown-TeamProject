@@ -1,6 +1,7 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using System;
 using System.Numerics;
+using team2_a4_WesternShowdown;
 
 // The namespace your code is in.
 namespace MohawkGame2D
@@ -27,7 +28,13 @@ namespace MohawkGame2D
         public void Update()
         {
 
+
         }
+
+        
+
     }
+
+
 
 }
