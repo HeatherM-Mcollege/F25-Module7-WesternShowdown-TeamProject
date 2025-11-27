@@ -16,13 +16,13 @@ namespace team2_a4_WesternShowdown
             new Vector2(80,150), //title [0]
             new Vector2(352, 305), //start [1]
             new Vector2(330,365), //Controls [2]
-            new Vector2(35, 150), //draw player 1 controls [3]
-            new Vector2(385, 150), //draw player 2 controls [4]
-            new Vector2(35, 250), //draw movement [5]
-            new Vector2(385, 250), //draw movement2 [6]
-            new Vector2(35, 290), //draw fire1 [7]
-            new Vector2(385, 290), //draw fire2 [8]
-            new Vector2(690,510), //back [9] 
+            new Vector2(35, 300), //draw player 1 controls [3]
+            new Vector2(435, 300), //draw player 2 controls [4]
+            new Vector2(35, 400), //draw movement [5]
+            new Vector2(435, 400), //draw movement2 [6]
+            new Vector2(690,510), //back [7] 
+            new Vector2(170,100), //rule line1 [8] 
+            new Vector2(80,150), //rule line 2 [9] 
 
             ];
 
@@ -100,11 +100,12 @@ namespace team2_a4_WesternShowdown
             Text.Draw("Player 1", wordPos[3]);
             Text.Draw("Player 2", wordPos[4]);
             Text.Size = 30;
-            Text.Draw("Movement.......................W A S D", wordPos[5]);
-            Text.Draw("Movement....................Up, Left, Down, Right", wordPos[6]);
-            Text.Draw("Fire...........................", wordPos[7]);
-            Text.Draw("Fire........................", wordPos[8]);
-            Text.Draw("Back", wordPos[9]);
+            Text.Draw("Fire.......................W A S D", wordPos[5]);
+            Text.Draw("Fire....................Up, Left, Down, Right", wordPos[6]);
+            Text.Draw("Back", wordPos[7]);
+            Text.Size = 40;
+            Text.Draw("Can you become the top Gunman?", wordPos[8]);
+            Text.Draw("When prompted press the corresponding button", wordPos[9]);
 
         }
 
