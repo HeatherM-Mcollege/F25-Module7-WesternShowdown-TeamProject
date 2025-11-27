@@ -1,104 +1,284 @@
-﻿// Include the namespaces (code libraries) you need below.
+﻿
 using System;
 using System.Diagnostics;
 using System.Numerics;
 
-// The namespace your code is in.
+
 namespace MohawkGame2D
 {
-    /// <summary>
-    ///     Your game code goes inside this class!
-    /// </summary>
+
     public class Game
     {
-        // Place your variables here:
-
-
-        /// <summary>
-        ///     Setup runs once before the game loop begins.
-        /// </summary>
+        int duelMatch = 1;
+        float timeElapsed = 0;
+        float drawDelay = Random.Float(3, 10);
+        int player1Input = Random.Integer(1, 5);
+        int player2Input = Random.Integer(1, 5);
+        int player1Score = 0;
+        int player2Score = 0;
+        float timeReset = 0;
         public void Setup()
         {
-            Window.SetSize(800, 600);
+            Window.SetSize(600, 400);
+            Window.SetTitle("Western Showdown");
+            Window.ClearBackground(Color.White);
         }
 
-        /// <summary>
-        ///     Update runs every frame.
-        /// </summary>
+        public void Duel()
+        {
+
+            Text.Draw("Ready...", new Vector2(250, 180));
+            if (timeElapsed - timeReset >= drawDelay)
+            {
+                Window.ClearBackground(Color.White);
+                Score();
+                Text.Draw("Draw!", new Vector2(300, 200));
+
+                if (player1Input == 1)
+                {
+                    Text.Draw("W", new Vector2(200, 300));
+                }
+                else if (player1Input == 2)
+                {
+                    Text.Draw("A", new Vector2(200, 300));
+                }
+                else if (player1Input == 3)
+                {
+                    Text.Draw("S", new Vector2(200, 300));
+                }
+                else if (player1Input == 4)
+                {
+                    Text.Draw("D", new Vector2(200, 300));
+                }
+                if (player2Input == 1)
+                {
+                    Text.Draw("Up", new Vector2(400, 300));
+                }
+                else if (player2Input == 2)
+                {
+                    Text.Draw("Left", new Vector2(400, 300));
+                }
+                else if (player2Input == 3)
+                {
+                    Text.Draw("Down", new Vector2(400, 300));
+                }
+                else if (player2Input == 4)
+                {
+                    Text.Draw("Right", new Vector2(400, 300));
+                }
+
+                if (Input.IsKeyboardKeyPressed(KeyboardInput.W) && player1Input == 1)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.W) && player1Input != 1)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.A) && player1Input == 2)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.A) && player1Input != 2)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.S) && player1Input == 3)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.S) && player1Input != 3)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.D) && player1Input == 4)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.D) && player1Input != 4)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Up) && player2Input == 1)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Up) && player2Input != 1)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Left) && player2Input == 2)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Left) && player2Input != 2)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Down) && player2Input == 3)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Down) && player2Input != 3)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Right) && player2Input == 4)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
+                    Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                    player2Score++;
+                    Score();
+                    resetDuel();
+                }
+                else if (Input.IsKeyboardKeyPressed(KeyboardInput.Right) && player2Input != 4)
+                {
+                    Window.ClearBackground(Color.White);
+                    Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
+                    Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                    player1Score++;
+                    Score();
+                    resetDuel();
+                }
+            }
+            else
+            {
+            }
+        }
+        public void resetDuel()
+        {
+            duelMatch = 0;
+            drawDelay = Random.Float(3, 10);
+            player1Input = Random.Integer(1, 5);
+            player2Input = Random.Integer(1, 5);
+            Text.Draw("Press Space to initiate", new Vector2(100, 300));
+            Text.Draw("the next duel!", new Vector2(150, 350));
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
+            {
+                timeReset = Time.SecondsElapsed;
+                duelMatch = 1;
+                Window.ClearBackground(Color.White);
+            }
+            else
+            {
+                duelMatch = 0;
+            }
+        }
+        public void Score()
+        {
+            Text.Draw("Player 1 Score: " + player1Score, new Vector2(10, 10));
+            Text.Draw("Player 2 Score: " + player2Score, new Vector2(10, 45));
+        }
         public void Update()
         {
-            drawBackground();
+            timeElapsed = Time.SecondsElapsed;
+            Score();
+            if (player1Score >= 5)
+            {
+                Window.ClearBackground(Color.White);
+                Score();
+                Text.Draw("Player 1 is the westiest", new Vector2(10, 200));
+                Text.Draw("in the west!!", new Vector2(10, 250));
+                duelMatch = -1;
+            }
+            else if (player2Score >= 5)
+            {
+                Window.ClearBackground(Color.White);
+                Score();
+                Text.Draw("Player 2 is the westiest", new Vector2(10, 200));
+                Text.Draw("in the west!!", new Vector2(10, 250));
+                duelMatch = -1;
+            }
+            else
+            {
+                if (duelMatch == 1)
+                {
+                    Duel();
+                }
+                else if (duelMatch == 0)
+                {
+                    resetDuel();
+                }
+                else { }
+            }
         }
-        public void drawBackground()
-        {
-            //sand
-            Window.ClearBackground(new Color(194, 178, 128));
-            //sky
-            Draw.LineSize = 0;
-            Draw.FillColor = new Color(50, 135, 168);
-            Draw.Rectangle(new Vector2(0, 0), new Vector2(800, 50));
-            Draw.FillColor = new Color(30, 185, 199);
-            Draw.Rectangle(new Vector2(0, 50), new Vector2(800, 50));
-            Draw.FillColor = new Color(255, 192, 180);
-            Draw.Rectangle(new Vector2(0, 100), new Vector2(800, 100));
-            Draw.FillColor = new Color(225, 165, 0);
-            Draw.Rectangle(new Vector2(0, 200), new Vector2(800, 100));
-            //sun
-            Draw.FillColor = Color.Yellow;
-            Draw.Circle(new Vector2(200, 80), 30);
-            //back mountain
-            Draw.FillColor = new Color(43, 18, 1);
-            Draw.Rectangle(new Vector2(0, 275), new Vector2(800, 25));
-            Draw.Rectangle(new Vector2(200, 265), new Vector2(300, 10));
-            Draw.Quad(new Vector2(250, 265), new Vector2(270, 245), new Vector2(370, 245), new Vector2(390, 265));
-            Draw.Quad(new Vector2(440, 265), new Vector2(450, 250), new Vector2(470, 245), new Vector2(470, 265));
-            Draw.Rectangle(new Vector2(470, 200), new Vector2(75, 100));
-            Draw.Quad(new Vector2(545, 230), new Vector2(545, 300), new Vector2(645, 300), new Vector2(645, 260));
 
-            //front mountains
-            Draw.FillColor = new Color(89, 37, 3);
-            //left mountain
-            Draw.Rectangle(new Vector2(0, 100), new Vector2(100, 300));
-            Draw.Rectangle(new Vector2(100, 150), new Vector2(25, 250));
-            Draw.Rectangle(new Vector2(125, 250), new Vector2(25, 150));
-            Draw.Rectangle(new Vector2(150, 290), new Vector2(10, 110));
-            Draw.Quad(new Vector2(160, 290), new Vector2(150, 400), new Vector2(195, 400), new Vector2(195, 350));
-            Draw.Rectangle(new Vector2(195, 350), new Vector2(30, 50));
-            Draw.Quad(new Vector2(225, 350), new Vector2(225, 400), new Vector2(235, 380), new Vector2(235, 400));
-            Draw.Rectangle(new Vector2(235, 380), new Vector2(30, 20));
-            Draw.Triangle(new Vector2(265, 380), new Vector2(265, 400), new Vector2(285, 400));
-            //right mountain
-            Draw.Rectangle(new Vector2(625, 150), new Vector2(150, 250));
-            Draw.Rectangle(new Vector2(775, 200), new Vector2(25, 200));
-            Draw.Quad(new Vector2(625, 200), new Vector2(625, 400), new Vector2(575, 400), new Vector2(595, 220));
-            Draw.Quad(new Vector2(595, 250), new Vector2(625, 400), new Vector2(525, 400), new Vector2(525, 340));
-            Draw.Quad(new Vector2(525, 400), new Vector2(525, 360), new Vector2(475, 400), new Vector2(485, 380));
-            //cacti
-            Draw.FillColor = new Color(46, 96, 33);
-            //main stem A
-            Draw.Rectangle(new Vector2(90, 290), new Vector2(30, 200));
-            Draw.Circle(new Vector2(105, 290), 15);
-            //side stems A
-            //stem A
-            Draw.Rectangle(new Vector2(50, 375), new Vector2(40, 30));
-            Draw.Rectangle(new Vector2(50, 325), new Vector2(20, 50));
-            Draw.Circle(new Vector2(60, 325), 10);
-            //stem B
-            Draw.Rectangle(new Vector2(120, 405), new Vector2(40, 30));
-            Draw.Rectangle(new Vector2(140, 375), new Vector2(20, 50));
-            Draw.Circle(new Vector2(150, 375), 10);
-            //main stem B
-            Draw.Rectangle(new Vector2(500, 340), new Vector2(25, 125));
-            Draw.Circle(new Vector2(512.5f, 340), 12.5f);
-            //side stems B
-            //stem A
-            Draw.Rectangle(new Vector2(475, 390), new Vector2(25, 20));
-            Draw.Rectangle(new Vector2(475, 370), new Vector2(15, 20));
-            Draw.Circle(new Vector2(482.5f, 370), 7.5f);
-            //stem B
-            Draw.Rectangle(new Vector2(525, 425), new Vector2(25, 20));
-            Draw.Rectangle(new Vector2(535, 405), new Vector2(15, 20));
-            Draw.Circle(new Vector2(542.5f, 405), 7.5f);
-        }
+
+
+
     }
 }
