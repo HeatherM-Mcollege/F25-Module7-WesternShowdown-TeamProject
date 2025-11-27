@@ -34,7 +34,14 @@ namespace team2_a4_WesternShowdown
 
         public void DrawCharacter2(Vector2 character2Pos)
         {
-            Graphics.Draw(character2Neutral, character2Pos);
+            if (Input.IsKeyboardKeyDown(KeyboardInput.W) | Input.IsKeyboardKeyDown(KeyboardInput.A) | Input.IsKeyboardKeyDown(KeyboardInput.S) | Input.IsKeyboardKeyDown(KeyboardInput.D))
+            {
+                Graphics.Draw(character2Shooting, character2Pos);
+            }
+            else
+            {
+                Graphics.Draw(character2Neutral, character2Pos);
+            }
         }
 
     }

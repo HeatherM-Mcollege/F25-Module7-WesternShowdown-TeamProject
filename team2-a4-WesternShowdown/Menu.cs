@@ -156,5 +156,76 @@ namespace team2_a4_WesternShowdown
             Draw.Capsule(590, 300, 600, 370, 5);
         }
 
+        public void drawBackground()
+        {
+            //sand
+            Window.ClearBackground(new Color(194, 178, 128));
+            //sky
+            Draw.LineSize = 0;
+            Draw.FillColor = new Color(50, 135, 168);
+            Draw.Rectangle(new Vector2(0, 0), new Vector2(600, 33));
+            Draw.FillColor = new Color(30, 185, 199);
+            Draw.Rectangle(new Vector2(0, 33), new Vector2(600, 33));
+            Draw.FillColor = new Color(255, 192, 180);
+            Draw.Rectangle(new Vector2(0, 66), new Vector2(600, 66));
+            Draw.FillColor = new Color(225, 165, 0);
+            Draw.Rectangle(new Vector2(0, 132), new Vector2(600, 66));
+            //sun
+            Draw.FillColor = Color.Yellow;
+            Draw.Circle(new Vector2(132, 52), 20);
+            //back mountain
+            Draw.FillColor = new Color(43, 18, 1);
+            Draw.Rectangle(new Vector2(0, 182), new Vector2(528, 17));
+            Draw.Rectangle(new Vector2(132, 175), new Vector2(198, 7));
+            Draw.Quad(new Vector2(165, 175), new Vector2(178, 162), new Vector2(244, 162), new Vector2(257, 175));
+            Draw.Quad(new Vector2(297, 175), new Vector2(297, 165), new Vector2(310, 162), new Vector2(310, 175));
+            Draw.Rectangle(new Vector2(310, 132), new Vector2(50, 66));
+            Draw.Quad(new Vector2(360, 152), new Vector2(360, 198), new Vector2(426, 198), new Vector2(426, 172));
+
+            //front mountains
+            Draw.FillColor = new Color(89, 37, 3);
+            //left mountain
+            Draw.Rectangle(new Vector2(0, 66), new Vector2(66, 198));
+            Draw.Rectangle(new Vector2(66, 99), new Vector2(17, 165));
+            Draw.Rectangle(new Vector2(83, 165), new Vector2(17, 99));
+            Draw.Rectangle(new Vector2(99, 191), new Vector2(7, 73));
+            Draw.Quad(new Vector2(106, 191), new Vector2(99, 264), new Vector2(129, 264), new Vector2(129, 231));
+            Draw.Rectangle(new Vector2(129, 231), new Vector2(20, 33));
+            Draw.Quad(new Vector2(0, 231), new Vector2(149, 264), new Vector2(155, 251), new Vector2(155, 264));
+            Draw.Rectangle(new Vector2(155, 251), new Vector2(20, 13));
+            Draw.Triangle(new Vector2(175, 251), new Vector2(175, 264), new Vector2(188, 264));
+            //right mountain
+            Draw.Rectangle(new Vector2(488, 99), new Vector2(99, 165));
+            Draw.Rectangle(new Vector2(583, 132), new Vector2(17, 132));
+            Draw.Quad(new Vector2(490, 132), new Vector2(490, 264), new Vector2(460, 264), new Vector2(470, 145));
+            Draw.Quad(new Vector2(477, 264), new Vector2(477, 237), new Vector2(443, 264), new Vector2(450, 251));
+            //cacti
+            Draw.FillColor = new Color(46, 96, 33);
+            //main stem A
+            Draw.Rectangle(new Vector2(60, 191), new Vector2(20, 132));
+            Draw.Circle(new Vector2(70, 191), 10);
+            //side stems A
+            //stem A
+            Draw.Rectangle(new Vector2(33, 248), new Vector2(28, 20));
+            Draw.Rectangle(new Vector2(33, 215), new Vector2(13, 33));
+            Draw.Circle(new Vector2(40, 215), 7);
+            //stem B
+            Draw.Rectangle(new Vector2(79, 267), new Vector2(26, 20));
+            Draw.Rectangle(new Vector2(92, 248), new Vector2(13, 33));
+            Draw.Circle(new Vector2(99, 246), 7);
+            //main stem B
+            Draw.Rectangle(new Vector2(430, 225), new Vector2(17, 83));
+            Draw.Circle(new Vector2(438.25f, 224), 8.25f);
+            //side stems B
+            //stem A
+            Draw.Rectangle(new Vector2(414, 257), new Vector2(17, 13));
+            Draw.Rectangle(new Vector2(414, 244), new Vector2(10, 13));
+            Draw.Circle(new Vector2(418.45f, 244), 4.95f);
+            //stem B
+            Draw.Rectangle(new Vector2(447, 281), new Vector2(16, 11));
+            Draw.Rectangle(new Vector2(453, 267), new Vector2(10, 15));
+            Draw.Circle(new Vector2(458.05f, 267), 4.95f);
+        }
+
     }
 }
