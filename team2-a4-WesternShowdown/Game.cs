@@ -83,6 +83,7 @@ namespace MohawkGame2D
                     startButton.Update();
                     controlsButton.Update();
                     DrawMenuText();
+                    timeReset = Time.SecondsElapsed;
 
                     if (startButton.Click() == true)
                     {
@@ -114,9 +115,6 @@ namespace MohawkGame2D
 
                 if (gameStart == true)
                 {
-                    drawBackground();
-                    character1.Update();
-                    character2.Update();
                     
                     timeElapsed = Time.SecondsElapsed;
                     Score();
@@ -124,16 +122,16 @@ namespace MohawkGame2D
                     {
                         Window.ClearBackground(Color.Clear);
                         Score();
-                        Text.Draw("Player 1 is the westiest", new Vector2(180, 200));
-                        Text.Draw("in the west!!", new Vector2(230, 250));
+                        Text.Draw("Player 1 is the westiest", new Vector2(180, 300));
+                        Text.Draw("in the west!!", new Vector2(230, 350));
                         duelMatch = -1;
                     }
                     else if (player2Score >= 5)
                     {
                         Window.ClearBackground(Color.Clear);
                         Score();
-                        Text.Draw("Player 2 is the westiest", new Vector2(180, 200));
-                        Text.Draw("in the west!!", new Vector2(230, 250));
+                        Text.Draw("Player 2 is the westiest", new Vector2(180, 300));
+                        Text.Draw("in the west!!", new Vector2(230, 350));
                         duelMatch = -1;
                     }
                     else
@@ -156,8 +154,11 @@ namespace MohawkGame2D
 
             public void Duel()
             {
-
+                drawBackground();
+                character1.Update();
+                character2.Update();
                 Text.Draw("Ready...", new Vector2(250, 180));
+                Score();
                 if (timeElapsed - timeReset >= drawDelay)
                 {
                     drawBackground();
@@ -201,36 +202,44 @@ namespace MohawkGame2D
 
                     if (Input.IsKeyboardKeyPressed(KeyboardInput.W) && player1Input == 1)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Shot Player 2!", new Vector2(200, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.W) && player1Input != 1)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.A) && player1Input == 2)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Shot Player 2!", new Vector2(200, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.A) && player1Input != 2)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
@@ -238,9 +247,11 @@ namespace MohawkGame2D
 
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.S) && player1Input == 3)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Shot Player 2!", new Vector2(200, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
@@ -248,9 +259,11 @@ namespace MohawkGame2D
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.S) && player1Input != 3)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
@@ -258,90 +271,110 @@ namespace MohawkGame2D
 
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.D) && player1Input == 4)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Shot Player 2!", new Vector2(125, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Shot Player 2!", new Vector2(200, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.D) && player1Input != 4)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 1 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 1 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Up) && player2Input == 1)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Shot Player 1!", new Vector2(200, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Up) && player2Input != 1)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Left) && player2Input == 2)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Shot Player 1!", new Vector2(200, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Left) && player2Input != 2)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Down) && player2Input == 3)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Shot Player 1!", new Vector2(200, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Down) && player2Input != 3)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Right) && player2Input == 4)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Shot Player 1!", new Vector2(125, 150));
-                        Text.Draw("Player 2 Scores!", new Vector2(135, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Shot Player 1!", new Vector2(200, 110));
+                        Text.Draw("Player 2 Scores!", new Vector2(230, 150));
                         player2Score++;
                         Score();
                         resetDuel();
                     }
                     else if (Input.IsKeyboardKeyPressed(KeyboardInput.Right) && player2Input != 4)
                     {
-                        Window.ClearBackground(Color.Clear);
-                        Text.Draw("Player 2 Fumbled!", new Vector2(150, 150));
-                        Text.Draw("Player 1 Scores!", new Vector2(150, 190));
+                        drawBackground();
+                        character1.Update();
+                        character2.Update();
+                        Text.Draw("Player 2 Fumbled!", new Vector2(222, 110));
+                        Text.Draw("Player 1 Scores!", new Vector2(230, 150));
                         player1Score++;
                         Score();
                         resetDuel();
@@ -363,7 +396,7 @@ namespace MohawkGame2D
                 {
                     timeReset = Time.SecondsElapsed;
                     duelMatch = 1;
-                    Window.ClearBackground(Color.White);
+                    drawBackground();
                 }
                 else
                 {
